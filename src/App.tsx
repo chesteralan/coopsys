@@ -18,6 +18,10 @@ import Blank from "./pages/Blank";
 import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
+import Members from "./pages/Members/Members";
+import ShareCapital from "./pages/ShareCapital/ShareCapital";
+import Loans from "./pages/Loans/Loans";
+import Reports from "./pages/Reports/Reports";
 
 export default function App() {
   return (
@@ -51,6 +55,31 @@ export default function App() {
             {/* Charts */}
             <Route path="/line-chart" element={<LineChart />} />
             <Route path="/bar-chart" element={<BarChart />} />
+
+            {/* Members */}
+            <Route path="/members" element={<Members />} />
+            <Route path="/members/active" element={<Members />} />
+            <Route path="/members/inactive" element={<Members />} />
+            <Route path="/members/reports" element={<Members />} />
+            <Route path="/members/add" element={<Members />} />
+
+            {/* Share Capital */}
+            <Route path="/share-capital" element={<ShareCapital />} />
+            <Route path="/share-capital/active" element={<ShareCapital />} />
+            <Route path="/share-capital/inactive" element={<ShareCapital />} />
+            <Route path="/share-capital/reports" element={<ShareCapital />} />
+            <Route path="/share-capital/add" element={<ShareCapital />} />
+
+            {/* Loans */}
+            <Route path="/loans" element={<Loans />} />
+            <Route path="/loans/active" element={<Loans />} />
+            <Route path="/loans/inactive" element={<Loans />} />
+            <Route path="/loans/reports" element={<Loans />} />
+            <Route path="/loans/add" element={<Loans />} />
+            <Route path="/loans/estimates" element={<Loans />} />
+
+            {/* Reports */}
+            <Route path="/reports" element={<Reports />} />
           </Route>
 
           {/* Auth Layout */}
