@@ -54,6 +54,11 @@ import { ReactComponent as ChatIcon } from "./chat.svg?react";
 import { ReactComponent as MoreDotIcon } from "./moredot.svg?react";
 import { ReactComponent as AlertHexaIcon } from "./alert-hexa.svg?react";
 import { ReactComponent as ErrorHexaIcon } from "./info-hexa.svg?react";
+import { ReactComponent as UsersFourIcon } from "./users-four.svg?react";
+import { ReactComponent as FundsIcon } from "./funds.svg?react";
+import { ReactComponent as BorrowIcon } from "./borrow.svg?react";
+import { ReactComponent as PaymentBitcoinIcon } from "./payment-bitcoin.svg?react";
+import { ReactComponent as ReportIcon } from "./report.svg?react";
 
 export {
   ErrorHexaIcon,
@@ -112,4 +117,9 @@ export {
   ChatIcon,
   AngleLeftIcon,
   AngleRightIcon,
+  UsersFourIcon,
+  FundsIcon,
+  BorrowIcon,
+  PaymentBitcoinIcon,
+  ReportIcon,
 };
