@@ -22,10 +22,15 @@ import Members from "./pages/Members/Members";
 import ShareCapital from "./pages/ShareCapital/ShareCapital";
 import Loans from "./pages/Loans/Loans";
 import Reports from "./pages/Reports/Reports";
+import PageMeta from "./components/common/PageMeta";
 
 export default function App() {
   return (
     <>
+      <PageMeta
+        title="CoopSys - Reliable systems for modern teams"
+        description="CoopSys - Reliable systems for modern teams"
+      />
       <Router>
         <ScrollToTop />
         <Routes>
