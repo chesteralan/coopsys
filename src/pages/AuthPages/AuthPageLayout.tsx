@@ -21,12 +21,14 @@ export default function AuthLayout({
                 <img
                   width={231}
                   height={48}
-                  src="/images/logo/auth-logo.svg"
+                  src="/images/logo/auth-logo.png"
                   alt="Logo"
                 />
               </Link>
               <p className="text-center text-gray-400 dark:text-white/60">
-                Free and Open-Source Tailwind CSS Admin Dashboard Template
+                Reliable systems for modern teams, providing cooperatives with a
+                seamless way to manage memberships, track capital, and oversee
+                loans—bringing clarity and control to every operation.
               </p>
             </div>
           </div>
