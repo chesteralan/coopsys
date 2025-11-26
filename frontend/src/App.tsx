@@ -14,6 +14,7 @@ import packageJson from "../package.json";
 import MembersOverview from "./pages/Members/MembersOverview";
 import ShareCapitalOverview from "./pages/ShareCapital/ShareCapitalOverview";
 import LoansOverview from "./pages/Loans/LoansOverview";
+import AddMember from "./pages/Members/AddMember";
 
 export default function App() {
   return (
@@ -31,10 +32,10 @@ export default function App() {
 
             {/* Members */}
             <Route path="/members" element={<MembersOverview />} />
-            <Route path="/members/active" element={<Members />} />
-            <Route path="/members/inactive" element={<Members />} />
+            <Route path="/members/active" element={<Members status="active" />} />
+            <Route path="/members/inactive" element={<Members status="inactive" />} />
+            <Route path="/members/add" element={<AddMember />} />
             <Route path="/members/reports" element={<Members />} />
-            <Route path="/members/add" element={<Members />} />
 
             {/* Share Capital */}
             <Route path="/share-capital" element={<ShareCapitalOverview />} />

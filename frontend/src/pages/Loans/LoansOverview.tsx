@@ -1,6 +1,6 @@
-import EcommerceMetrics from "../../components/ecommerce/EcommerceMetrics";
-import MonthlySalesChart from "../../components/ecommerce/MonthlySalesChart";
-import MonthlyTarget from "../../components/ecommerce/MonthlyTarget";
+import EcommerceMetrics from "@/components/ecommerce/EcommerceMetrics";
+import MonthlySalesChart from "@/components/ecommerce/MonthlySalesChart";
+import MonthlyTarget from "@/components/ecommerce/MonthlyTarget";
 
 export default function LoansOverview() {
   return (

@@ -9,8 +9,8 @@ import {
   FundsIcon,
   PaymentBitcoinIcon,
   ReportIcon,
-} from "../icons";
-import { useSidebar } from "../context/SidebarContext";
+} from "@/icons";
+import { useSidebar } from "@/context/SidebarContext";
 
 type NavItem = {
   name: string;
