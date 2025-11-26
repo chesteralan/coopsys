@@ -32,7 +32,7 @@ const navItems: NavItem[] = [
       { name: "Overview", path: "/members", pro: false },
       { name: "Active Members", path: "/members/active", pro: false },
       { name: "Inactive Members", path: "/members/inactive", pro: false },
-      { name: "Add Member", path: "/members/add", pro: false },
+      { name: "Add New Member", path: "/members/add", pro: false },
       { name: "Reports", path: "/members/reports", pro: false },
     ],
   },

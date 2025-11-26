@@ -9,7 +9,7 @@ export default function AddMember() {
   
   return (
     <div>
-      <PageBreadcrumb pageTitle="Add Member" parentPage={{ name: "Members", link: "/members" }} />
+      <PageBreadcrumb pageTitle="Add New Member" parentPage={{ name: "Members", link: "/members" }} />
       
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-1">
         <div className="space-y-6">
