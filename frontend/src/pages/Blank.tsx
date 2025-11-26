@@ -1,4 +1,4 @@
-import PageBreadcrumb from "../components/common/PageBreadCrumb";
+import PageBreadcrumb from "@/components/common/PageBreadCrumb";
 
 export default function Blank() {
   return (

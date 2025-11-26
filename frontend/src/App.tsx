@@ -2,19 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router";
 import SignIn from "./pages/AuthPages/SignIn";
 import SignUp from "./pages/AuthPages/SignUp";
 import NotFound from "./pages/OtherPage/NotFound";
-import UserProfiles from "./pages/UserProfiles";
-import Videos from "./pages/UiElements/Videos";
-import Images from "./pages/UiElements/Images";
-import Alerts from "./pages/UiElements/Alerts";
-import Badges from "./pages/UiElements/Badges";
-import Avatars from "./pages/UiElements/Avatars";
-import Buttons from "./pages/UiElements/Buttons";
-import LineChart from "./pages/Charts/LineChart";
-import BarChart from "./pages/Charts/BarChart";
-import Calendar from "./pages/Calendar";
-import BasicTables from "./pages/Tables/BasicTables";
-import FormElements from "./pages/Forms/FormElements";
-import Blank from "./pages/Blank";
 import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
@@ -24,6 +11,9 @@ import Loans from "./pages/Loans/Loans";
 import Reports from "./pages/Reports/Reports";
 import PageMeta from "./components/common/PageMeta";
 import packageJson from "../package.json";
+import MembersOverview from "./pages/Members/MembersOverview";
+import ShareCapitalOverview from "./pages/ShareCapital/ShareCapitalOverview";
+import LoansOverview from "./pages/Loans/LoansOverview";
 
 export default function App() {
   return (
@@ -40,21 +30,21 @@ export default function App() {
             <Route index path="/" element={<Home />} />
 
             {/* Members */}
-            <Route path="/members" element={<Members />} />
+            <Route path="/members" element={<MembersOverview />} />
             <Route path="/members/active" element={<Members />} />
             <Route path="/members/inactive" element={<Members />} />
             <Route path="/members/reports" element={<Members />} />
             <Route path="/members/add" element={<Members />} />
 
             {/* Share Capital */}
-            <Route path="/share-capital" element={<ShareCapital />} />
+            <Route path="/share-capital" element={<ShareCapitalOverview />} />
             <Route path="/share-capital/active" element={<ShareCapital />} />
             <Route path="/share-capital/inactive" element={<ShareCapital />} />
             <Route path="/share-capital/reports" element={<ShareCapital />} />
             <Route path="/share-capital/add" element={<ShareCapital />} />
 
             {/* Loans */}
-            <Route path="/loans" element={<Loans />} />
+            <Route path="/loans" element={<LoansOverview />} />
             <Route path="/loans/active" element={<Loans />} />
             <Route path="/loans/inactive" element={<Loans />} />
             <Route path="/loans/reports" element={<Loans />} />

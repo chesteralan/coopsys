@@ -31,4 +31,9 @@ export default defineConfig({
     ]),
     renderer(),
   ],
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
 });
