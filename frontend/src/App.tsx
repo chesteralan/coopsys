@@ -15,6 +15,7 @@ import MembersOverview from "./pages/Members/MembersOverview";
 import ShareCapitalOverview from "./pages/ShareCapital/ShareCapitalOverview";
 import LoansOverview from "./pages/Loans/LoansOverview";
 import AddMember from "./pages/Members/AddMember";
+import UpdateMember from "./pages/Members/UpdateMember";
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
             <Route path="/members/active" element={<Members status="active" />} />
             <Route path="/members/inactive" element={<Members status="inactive" />} />
             <Route path="/members/add" element={<AddMember />} />
+            <Route path="/members/update/:member_id" element={<UpdateMember />} />
             <Route path="/members/reports" element={<Members />} />
 
             {/* Share Capital */}
