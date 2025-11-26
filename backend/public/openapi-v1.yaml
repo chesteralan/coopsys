@@ -1,0 +1,162 @@
+openapi: 3.1.0
+info:
+  title: CoopSys API
+  version: 1.0.0
+  description: API for managing members, including transaction-enabled creation.
+
+paths:
+  /api/v1/members:
+    post:
+      summary: Create a new member
+      description: >
+        Creates a new member record and saves all personal, contact, family background,
+        educational attainment, and employment information **within a database transaction**.
+      tags:
+        - Members
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MemberCreateRequest'
+      responses:
+        '201':
+          description: Member created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberCreateResponse'
+        '400':
+          description: Invalid input
+        '500':
+          description: Server error
+
+components:
+  schemas:
+
+    # -----------------------------
+    # REQUEST BODY
+    # -----------------------------
+    MemberCreateRequest:
+      type: object
+      required:
+        - first_name
+        - last_name
+        - date_of_birth
+        - sex
+        - nationality
+        - civil_status
+      properties:
+        # Personal Info
+        first_name:
+          type: string
+        middle_name:
+          type: string
+          nullable: true
+        last_name:
+          type: string
+        suffix:
+          type: string
+          nullable: true
+        date_of_birth:
+          type: string
+          format: date
+        sex:
+          type: string
+          enum: [Male, Female]
+        religion:
+          type: string
+          nullable: true
+        nationality:
+          type: string
+        civil_status:
+          type: string
+          enum: [Single, Married, Widowed, Separated]
+        tin:
+          type: string
+          nullable: true
+        gsis:
+          type: string
+          nullable: true
+        pagibig:
+          type: string
+          nullable: true
+
+        # Address
+        home_address:
+          type: string
+
+        # Contact Info
+        mobile_number:
+          type: string
+        landline_number:
+          type: string
+          nullable: true
+        email_address:
+          type: string
+
+        # Family Background
+        father_name:
+          type: string
+          nullable: true
+        mother_name:
+          type: string
+          nullable: true
+        spouse_name:
+          type: string
+          nullable: true
+        spouse_occupation:
+          type: string
+          nullable: true
+        number_of_children:
+          type: integer
+          nullable: true
+
+        # Educational Attainment
+        highest_education:
+          type: string
+        school_name:
+          type: string
+          nullable: true
+        year_graduated:
+          type: string
+          nullable: true
+
+        # Employment
+        employment_status:
+          type: string
+          enum: [Employed, Self-Employed, Unemployed]
+        employer_name:
+          type: string
+          nullable: true
+        employer_address:
+          type: string
+          nullable: true
+        position:
+          type: string
+          nullable: true
+        monthly_income:
+          type: number
+          nullable: true
+
+    # -----------------------------
+    # RESPONSE BODY
+    # -----------------------------
+    MemberCreateResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        message:
+          type: string
+          example: Member created successfully.
+        data:
+          type: object
+          properties:
+            member_id:
+              type: integer
+              example: 1024
+            reference_number:
+              type: string
+              example: REF-20250101-1234

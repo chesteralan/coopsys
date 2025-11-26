@@ -7,10 +7,6 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-$routes->resource('members', ['controller' => 'Members']);
-$routes->resource('share-capital', ['controller' => 'ShareCapital']);
-$routes->resource('loans', ['controller' => 'Loans']);
-
 $routes->group('api/v1', ['namespace' => 'App\Controllers\Api\V1'], function($routes) {
     $routes->resource('members');
     $routes->resource('households');
@@ -21,5 +17,11 @@ $routes->group('api/v1', ['namespace' => 'App\Controllers\Api\V1'], function($ro
     $routes->resource('cooperatives');
     $routes->resource('ids');
 });
+
+$routes->group('docs', ['namespace' => 'App\Controllers\Docs'], function($routes) {
+    $routes->get('v1', 'DocsV1::index');
+    $routes->get('v1/openapi', 'DocsV1::openapi');
+});
+
 
 service('auth')->routes($routes);
