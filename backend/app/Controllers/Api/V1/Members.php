@@ -7,7 +7,7 @@ use App\Models\MemberModel;
 class Members extends BaseApiController
 {
     protected $modelName = MemberModel::class;
-    protected $format    = 'json';
+    protected $format = 'json';
 
     public function index()
     {
@@ -22,8 +22,8 @@ class Members extends BaseApiController
             'pager' => [
                 'current' => $pager->getCurrentPage(),
                 'perPage' => $pager->getPerPage(),
-                'total'   => $pager->getTotal(),
-                'links'   => $pager->links()
+                'total' => $pager->getTotal(),
+                'links' => $pager->links()
             ]
         ]);
     }
@@ -31,42 +31,44 @@ class Members extends BaseApiController
     public function show($id = null)
     {
         $member = $this->model->find($id);
-        if (!$member) return $this->respondError('Member not found', 404);
+        if (!$member)
+            return $this->respondError('Member not found', 404);
 
         return $this->respondSuccess($member);
     }
 
     public function create()
-{
-    $input = $this->request->getJSON(true) ?? $this->request->getPost();
+    {
+        $input = $this->request->getJSON(true) ?? $this->request->getPost();
 
-    if (!$input) {
-        return $this->respondError("Invalid or empty request data", 400);
+        if (!$input) {
+            return $this->respondError("Invalid or empty request data", 400);
+        }
+
+        // Service call
+        $service = new \App\Services\MemberService();
+        $result = $service->createMemberWithRelations($input);
+
+        if ($result['status'] === 'error') {
+            return $this->respondError($result['message'], 500);
+        }
+
+        return $this->respondSuccess([
+            'member_id' => $result['member_id'],
+            'message' => 'Member and related information created successfully'
+        ], 201);
     }
-
-    // Service call
-    $service = new \App\Services\MemberService();
-    $result = $service->createMemberWithRelations($input);
-
-    if ($result['status'] === 'error') {
-        return $this->respondError($result['message'], 500);
-    }
-
-    return $this->respondSuccess([
-        'member_id' => $result['member_id'],
-        'message'   => 'Member and related information created successfully'
-    ], 201);
-}
 
     public function update($id = null)
     {
-        if (!$this->model->find($id)) return $this->respondError('Member not found', 404);
+        if (!$this->model->find($id))
+            return $this->respondError('Member not found', 404);
 
         $input = $this->request->getJSON(true) ?: $this->request->getRawInput();
 
         $rules = [
             'first_name' => 'permit_empty|min_length[2]',
-            'last_name'  => 'permit_empty|min_length[2]',
+            'last_name' => 'permit_empty|min_length[2]',
             'date_of_birth' => 'permit_empty|valid_date',
         ];
 
@@ -81,7 +83,8 @@ class Members extends BaseApiController
 
     public function delete($id = null)
     {
-        if (!$this->model->find($id)) return $this->respondError('Member not found', 404);
+        if (!$this->model->find($id))
+            return $this->respondError('Member not found', 404);
 
         $this->model->delete($id);
 

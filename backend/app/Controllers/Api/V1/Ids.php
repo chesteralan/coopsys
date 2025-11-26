@@ -7,7 +7,7 @@ use App\Models\MemberIDModel;
 class Ids extends BaseApiController
 {
     protected $modelName = MemberIDModel::class;
-    protected $format    = 'json';
+    protected $format = 'json';
 
     public function index()
     {
@@ -17,7 +17,8 @@ class Ids extends BaseApiController
     public function show($id = null)
     {
         $item = $this->model->find($id);
-        if (!$item) return $this->respondError('ID not found', 404);
+        if (!$item)
+            return $this->respondError('ID not found', 404);
 
         return $this->respondSuccess($item);
     }
@@ -28,11 +29,12 @@ class Ids extends BaseApiController
 
         $rules = [
             'member_id' => 'required|is_natural_no_zero',
-            'id_type'   => 'required',
+            'id_type' => 'required',
             'id_number' => 'required'
         ];
 
-        if (!$this->validate($rules)) return $this->respondError($this->validator->getErrors(), 422);
+        if (!$this->validate($rules))
+            return $this->respondError($this->validator->getErrors(), 422);
 
         $id = $this->model->insert($input);
         return $this->respondSuccess(['id' => $id, 'message' => 'ID saved'], 201);
@@ -40,7 +42,8 @@ class Ids extends BaseApiController
 
     public function update($id = null)
     {
-        if (!$this->model->find($id)) return $this->respondError('ID not found', 404);
+        if (!$this->model->find($id))
+            return $this->respondError('ID not found', 404);
 
         $input = $this->request->getJSON(true) ?: $this->request->getRawInput();
         $this->model->update($id, $input);
@@ -50,7 +53,8 @@ class Ids extends BaseApiController
 
     public function delete($id = null)
     {
-        if (!$this->model->find($id)) return $this->respondError('ID not found', 404);
+        if (!$this->model->find($id))
+            return $this->respondError('ID not found', 404);
 
         $this->model->delete($id);
         return $this->respondSuccess(['message' => 'ID deleted']);

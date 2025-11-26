@@ -1,13 +1,8 @@
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
-import DefaultInputs from "@/components/form/form-elements/DefaultInputs";
-import InputGroup from "@/components/form/form-elements/InputGroup";
-import CheckboxComponents from "@/components/form/form-elements/CheckboxComponents";
-import RadioButtons from "@/components/form/form-elements/RadioButtons";
-import ToggleSwitch from "@/components/form/form-elements/ToggleSwitch";
-import FileInputExample from "@/components/form/form-elements/FileInputExample";
-import SelectInputs from "@/components/form/form-elements/SelectInputs";
-import TextAreaInput from "@/components/form/form-elements/TextAreaInput";
-import InputStates from "@/components/form/form-elements/InputStates";
+import ContactInformation from "@/components/Members/AddMember/ContactInformation";
+import EducationalAttainment from "@/components/Members/AddMember/EducationalAttainment";
+import Occupation from "@/components/Members/AddMember/Occupation";
+import PersonalInformation from "@/components/Members/AddMember/PersonalInformation";
 
 export default function AddMember() {
   return (
@@ -15,17 +10,12 @@ export default function AddMember() {
       <PageBreadcrumb pageTitle="Add Member" parentPage={{ name: "Members", link: "/members" }} />
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
         <div className="space-y-6">
-          <DefaultInputs />
-          <SelectInputs />
-          <TextAreaInput />
-          <InputStates />
+          <PersonalInformation />
+          <EducationalAttainment />
         </div>
         <div className="space-y-6">
-          <InputGroup />
-          <FileInputExample />
-          <CheckboxComponents />
-          <RadioButtons />
-          <ToggleSwitch />
+          <ContactInformation />
+          <Occupation />
         </div>
       </div>
     </div>
