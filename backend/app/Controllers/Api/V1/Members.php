@@ -47,7 +47,7 @@ class Members extends BaseApiController
 
         // Service call
         $service = new \App\Services\MemberService();
-        $result = $service->createMemberWithRelations($input);
+        $result = $service->createMember($input);
 
         if ($result['status'] === 'error') {
             return $this->respondError($result['message'], 500);
@@ -55,7 +55,7 @@ class Members extends BaseApiController
 
         return $this->respondSuccess([
             'member_id' => $result['member_id'],
-            'message' => 'Member and related information created successfully'
+            'message' => 'Member information created successfully'
         ], 201);
     }
 

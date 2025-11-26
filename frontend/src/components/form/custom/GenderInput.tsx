@@ -1,15 +1,15 @@
-import { useState } from "react";
 import Radio from "../input/Radio";
+import { useMemberActions, useMemberGender } from "@/stores/memberStore";
 
 type GenderInputProps = {
   className?: string;
 };
 
 export default function GenderInput({ className = "" }: GenderInputProps) {
-  const [selectedValue, setSelectedValue] = useState<string>("male");
-
+  const selectedValue = useMemberGender();
+  const { setGender } = useMemberActions();
   const handleRadioChange = (value: string) => {
-    setSelectedValue(value);
+    setGender(value);
   };
 
   return (

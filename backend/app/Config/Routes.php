@@ -5,6 +5,18 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+
+// Handle all OPTIONS requests globally (required for CORS)
+$routes->options('(:any)', function () {
+    return service('response')
+        ->setStatusCode(200)
+        ->setHeader('Access-Control-Allow-Origin', 'http://localhost:5173')
+        ->setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
+        ->setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With')
+        ->setHeader('Access-Control-Allow-Credentials', 'true')
+        ->setBody('');
+});
+
 $routes->get('/', 'Home::index');
 
 $routes->group('api/v1', ['namespace' => 'App\Controllers\Api\V1'], function($routes) {
@@ -23,5 +35,6 @@ $routes->group('docs', ['namespace' => 'App\Controllers\Docs'], function($routes
     $routes->get('v1/openapi', 'DocsV1::openapi');
 });
 
+$routes->setAutoRoute(true);
 
 service('auth')->routes($routes);

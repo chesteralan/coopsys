@@ -26,6 +26,46 @@ class MemberService
     /**
      * Creates a member and related child records in a single DB transaction.
      */
+    public function createMember(array $payload)
+    {
+        $this->db->transBegin();
+
+        try {
+            // MAIN MEMBER
+            $memberData = $payload ?? null;
+            if (!$memberData) {
+                throw new DataException("Missing 'member' data");
+            }
+
+            $memberModel = new MemberModel();
+            $memberId = $memberModel->insert($memberData);
+
+            if (!$memberId) {
+                throw new DataException("Failed to create member");
+            }
+
+            if ($this->db->transStatus() === false) {
+                throw new DataException("Transaction failed");
+            }
+
+            $this->db->transCommit();
+
+            return [
+                'status' => 'success',
+                'member_id' => $memberId
+            ];
+        } catch (\Throwable $e) {
+            $this->db->transRollback();
+            return [
+                'status'  => 'error',
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    /**
+     * Creates a member and related child records in a single DB transaction.
+     */
     public function createMemberWithRelations(array $payload)
     {
         $this->db->transBegin();
