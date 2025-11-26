@@ -16,8 +16,8 @@ class CreateLoansTable extends Migration
                 'auto_increment' => true,
             ],
             'member_id' => [
-                'type'       => 'INT',
-                'constraint' => 11,
+                'type'       => 'BIGINT',
+                'constraint' => 20,
                 'unsigned'   => true,
             ],
             'amount' => [
