@@ -11,7 +11,7 @@ class Members extends BaseApiController
 
     public function index()
     {
-        $perPage = (int) $this->request->getGet('per_page') ?: 50;
+        $perPage = (int) $this->request->getGet('per_page') ?: 10;
         $page = (int) $this->request->getGet('page') ?: 1;
 
         $data = $this->model->paginate($perPage, 'default', $page);
