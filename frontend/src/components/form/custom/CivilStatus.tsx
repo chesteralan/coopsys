@@ -25,6 +25,7 @@ export default function CivilStatus({ className = "" }: GenderInputProps) {
       <div className="flex flex-wrap items-center gap-8">
         {STATUS.map((item: string, index:number) => (
           <Radio
+            key={index}
             id={`civil-status-${index}`}
             name="civilStatus"
             value={item.toLowerCase()}

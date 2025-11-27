@@ -1,4 +1,4 @@
-import { CivilStatus, Gender } from "@/typing/member";
+import { ApiResponse, CivilStatus, CreateMemberResponse, Gender, MemberItem, MembersResponse, MemberStatus } from "@/typing/member";
 import axios from "@/config/axios";
 
 export interface CreateMemberPayload {
@@ -12,16 +12,21 @@ export interface CreateMemberPayload {
   civil_status: CivilStatus;
 }
 
-export interface MemberResponse {
-  member_id: string;
-  message: string;
-}
-
 const API_BASE = "/members";
 
 export const createMember = async (
   payload: CreateMemberPayload
-): Promise<MemberResponse> => {
-  const { data } = await axios.post<MemberResponse>(API_BASE, payload);
+): Promise<ApiResponse<CreateMemberResponse>> => {
+  const { data } = await axios.post<ApiResponse<CreateMemberResponse>>(API_BASE, payload);
+  return data;
+};
+
+export const getMembers = async (status: MemberStatus): Promise<ApiResponse<MembersResponse>> => {
+  const { data } = await axios.get<ApiResponse<MembersResponse>>(`${API_BASE}?status=${status}`);
+  return data;
+};
+
+export const getMemberData = async (id: string): Promise<ApiResponse<MemberItem>> => {
+  const { data } = await axios.get<ApiResponse<MemberItem>>(`${API_BASE}/${id}`);
   return data;
 };

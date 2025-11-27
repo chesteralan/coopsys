@@ -26,7 +26,7 @@ export const useAddMember = () => {
             civil_status: civilStatus
         };
         const response = await createMember(payload);
-        navigate(`/members/update/${response.member_id}`);
+        navigate(`/members/update/${response.data.member_id}`);
         return response;
     }
 }

@@ -1,9 +1,10 @@
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
 import ComponentCard from "@/components/common/ComponentCard";
-import BasicTableOne from "@/components/tables/BasicTables/BasicTableOne";
+import MembersList from "@/components/Members/MembersList/MembersList";
+import { MemberStatus } from "@/typing/member";
 
 type MembersProps = {
-  status?: "all" | "active" | "inactive";
+  status?: MemberStatus;
 };
 
 export default function Members({ status = "all" }: MembersProps) {
@@ -17,7 +18,7 @@ export default function Members({ status = "all" }: MembersProps) {
       />
       <div className="space-y-6">
         <ComponentCard title={statusTitle}>
-          <BasicTableOne />
+          <MembersList status={status} />
         </ComponentCard>
       </div>
     </>
