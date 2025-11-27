@@ -20,6 +20,7 @@ $routes->options('(:any)', function () {
 $routes->get('/', 'Home::index');
 
 $routes->group('api/v1', ['namespace' => 'App\Controllers\Api\V1'], function($routes) {
+    $routes->get('overview', 'Overview::index');
     $routes->resource('members');
     $routes->resource('households');
     $routes->resource('properties');

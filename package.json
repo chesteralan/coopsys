@@ -1,0 +1,14 @@
+{
+  "name": "coopsys",
+  "version": "1.0.0",
+  "description": "Cooperative System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:frontend": "cd frontend && yarn dev",
+    "dev:backend": "cd backend && php spark serve",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" "
+  },
+  "author": "",
+  "license": "ISC"
+}

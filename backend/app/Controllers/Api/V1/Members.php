@@ -23,7 +23,6 @@ class Members extends BaseApiController
                 'current' => $pager->getCurrentPage(),
                 'perPage' => $pager->getPerPage(),
                 'total' => $pager->getTotal(),
-                'links' => $pager->links()
             ]
         ]);
     }
