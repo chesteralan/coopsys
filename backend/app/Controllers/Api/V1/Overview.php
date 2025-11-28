@@ -8,10 +8,13 @@ class Overview extends BaseApiController
 
     public function index()
     {
+
+        $membersModel = new \App\Models\MemberModel();
+
         return $this->respondSuccess([
-            'total_members' => 0,
-            'active_members' => 0,
-            'inactive_members' => 0,
+            'total_members' => $membersModel->countAllResults(),
+            'active_members' => $membersModel->where('active', true)->countAllResults(),
+            'inactive_members' => $membersModel->where('active', false)->countAllResults(),
         ]);
     }
 

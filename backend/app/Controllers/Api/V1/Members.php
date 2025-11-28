@@ -13,8 +13,11 @@ class Members extends BaseApiController
     {
         $perPage = (int) $this->request->getGet('per_page') ?: 10;
         $page = (int) $this->request->getGet('page') ?: 1;
+        $status = $this->request->getGet('status') === 'active';
 
-        $data = $this->model->paginate($perPage, 'default', $page);
+        $data = $this->model->where('active', $status)
+        ->orderBy('last_name', 'asc')
+        ->paginate($perPage, 'default', $page);
         $pager = $this->model->pager;
 
         return $this->respondSuccess([
