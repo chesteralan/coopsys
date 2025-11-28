@@ -12,14 +12,12 @@ import { MemberStatus } from "@/typing/member";
 type MembersListProps = {
   status?: MemberStatus;
 };
-  
+
 export default function MembersList({ status = "all" }: MembersListProps) {
-
-
   const { loading, data } = useGetMembers(status);
 
-  if( loading || !data.items ) {
-    return <div>Loading...</div>
+  if (loading || !data.items) {
+    return <div>Loading...</div>;
   }
 
   return (

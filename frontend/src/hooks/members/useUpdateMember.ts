@@ -1,4 +1,4 @@
-import { createMember, CreateMemberPayload } from "@/services/member";
+import { updateMember, CreateMemberPayload } from "@/services/member";
 import {
   useMemberCivilStatus,
   useMemberDateOfBirth,
@@ -9,9 +9,8 @@ import {
   useMemberPlaceOfBirth,
   useMemberReligion,
 } from "@/stores/memberStore/memberStore";
-import { useNavigate } from "react-router";
 
-export const useAddMember = () => {
+export const useUpdateMember = (member_id: string) => {
   const firstName = useMemberFirstName();
   const lastName = useMemberLastName();
   const middleName = useMemberMiddleName();
@@ -20,7 +19,6 @@ export const useAddMember = () => {
   const religion = useMemberReligion();
   const gender = useMemberGender();
   const civilStatus = useMemberCivilStatus();
-  const navigate = useNavigate();
 
   return async () => {
     const payload: CreateMemberPayload = {
@@ -33,8 +31,7 @@ export const useAddMember = () => {
       gender,
       civil_status: civilStatus,
     };
-    const response = await createMember(payload);
-    navigate(`/members/update/${response.data.member_id}`);
+    const response = await updateMember(member_id, payload);
     return response;
   };
 };

@@ -5,10 +5,13 @@ interface BreadcrumbProps {
   parentPage?: {
     name: string;
     link: string;
-  }
+  };
 }
 
-const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle, parentPage }) => {
+const PageBreadcrumb: React.FC<BreadcrumbProps> = ({
+  pageTitle,
+  parentPage,
+}) => {
   return (
     <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
       <h2

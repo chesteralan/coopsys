@@ -12,7 +12,8 @@
     "build": "tsc -b && vite build && electron-builder",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "prettier . --write"
   },
   "build": {
     "productName": "coopsys-standalone",

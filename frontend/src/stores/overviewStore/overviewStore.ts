@@ -1,4 +1,4 @@
-import { create } from 'zustand'
+import { create } from "zustand";
 
 type OverviewStore = {
   totalMembers: number;
@@ -8,8 +8,8 @@ type OverviewStore = {
     setTotalMembers: (totalMembers: number) => void;
     setActiveMembers: (activeMembers: number) => void;
     setInactiveMembers: (inactiveMembers: number) => void;
-  }
-}
+  };
+};
 
 const useMemberStore = create<OverviewStore>()((set) => ({
   totalMembers: 0,
@@ -19,10 +19,14 @@ const useMemberStore = create<OverviewStore>()((set) => ({
     setTotalMembers: (totalMembers: number) => set({ totalMembers }),
     setActiveMembers: (activeMembers: number) => set({ activeMembers }),
     setInactiveMembers: (inactiveMembers: number) => set({ inactiveMembers }),
-  }
-}))
+  },
+}));
 
-export const useOverviewActions = () => useMemberStore((state) => state.actions)
-export const useOverviewTotalMembers = () => useMemberStore((state) => state.totalMembers)
-export const useOverviewActiveMembers = () => useMemberStore((state) => state.activeMembers)
-export const useOverviewInactiveMembers = () => useMemberStore((state) => state.inactiveMembers)
+export const useOverviewActions = () =>
+  useMemberStore((state) => state.actions);
+export const useOverviewTotalMembers = () =>
+  useMemberStore((state) => state.totalMembers);
+export const useOverviewActiveMembers = () =>
+  useMemberStore((state) => state.activeMembers);
+export const useOverviewInactiveMembers = () =>
+  useMemberStore((state) => state.inactiveMembers);

@@ -3,8 +3,8 @@ import axios from "@/config/axios";
 
 export interface Overview {
   total_members: number;
-    active_members: number;
-    inactive_members: number;
+  active_members: number;
+  inactive_members: number;
 }
 
 const API_BASE = "/overview";

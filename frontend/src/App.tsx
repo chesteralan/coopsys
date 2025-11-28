@@ -33,10 +33,19 @@ export default function App() {
 
             {/* Members */}
             <Route path="/members" element={<MembersOverview />} />
-            <Route path="/members/active" element={<Members status="active" />} />
-            <Route path="/members/inactive" element={<Members status="inactive" />} />
+            <Route
+              path="/members/active"
+              element={<Members status="active" />}
+            />
+            <Route
+              path="/members/inactive"
+              element={<Members status="inactive" />}
+            />
             <Route path="/members/add" element={<AddMember />} />
-            <Route path="/members/update/:member_id" element={<UpdateMember />} />
+            <Route
+              path="/members/update/:member_id"
+              element={<UpdateMember />}
+            />
             <Route path="/members/reports" element={<Members />} />
 
             {/* Share Capital */}

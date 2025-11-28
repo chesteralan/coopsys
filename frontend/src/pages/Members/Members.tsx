@@ -8,13 +8,14 @@ type MembersProps = {
 };
 
 export default function Members({ status = "all" }: MembersProps) {
+  const statusTitle =
+    status.charAt(0).toUpperCase() + status.slice(1) + " Members";
 
-  const statusTitle = status.charAt(0).toUpperCase() + status.slice(1) + " Members";
-  
   return (
     <>
-      <PageBreadcrumb pageTitle={statusTitle} 
-      parentPage={{ name: "Members", link: "/members" }}
+      <PageBreadcrumb
+        pageTitle={statusTitle}
+        parentPage={{ name: "Members", link: "/members" }}
       />
       <div className="space-y-6">
         <ComponentCard title={statusTitle}>

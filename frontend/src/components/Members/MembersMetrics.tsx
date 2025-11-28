@@ -1,13 +1,11 @@
-import {
-  ArrowDownIcon,
-  ArrowUpIcon,
-  GroupIcon,
-} from "@/icons";
+import { ArrowDownIcon, ArrowUpIcon, GroupIcon } from "@/icons";
 import Badge from "../ui/badge/Badge";
-import { useOverviewTotalMembers, useOverviewActiveMembers } from "@/stores/overviewStore";
+import {
+  useOverviewTotalMembers,
+  useOverviewActiveMembers,
+} from "@/stores/overviewStore";
 
 export default function MembersMetrics() {
-
   const totalMembers = useOverviewTotalMembers();
   const activeMembers = useOverviewActiveMembers();
 

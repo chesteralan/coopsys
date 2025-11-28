@@ -1,5 +1,6 @@
-import { useState } from "react";
 import Radio from "../input/Radio";
+import { useMemberActions, useMemberCivilStatus } from "@/stores/memberStore";
+import { CivilStatus as CivilStatusType } from "@/typing/member";
 
 type GenderInputProps = {
   className?: string;
@@ -8,10 +9,10 @@ type GenderInputProps = {
 const STATUS = ["Single", "Married", "Separated", "Widowed"];
 
 export default function CivilStatus({ className = "" }: GenderInputProps) {
-  const [selectedValue, setSelectedValue] = useState<string>(STATUS[0].toLowerCase());
-
+  const selectedValue = useMemberCivilStatus();
+  const { setCivilStatus } = useMemberActions();
   const handleRadioChange = (value: string) => {
-    setSelectedValue(value);
+    setCivilStatus(value as CivilStatusType);
   };
 
   return (
@@ -23,7 +24,7 @@ export default function CivilStatus({ className = "" }: GenderInputProps) {
         Civil Status
       </label>
       <div className="flex flex-wrap items-center gap-8">
-        {STATUS.map((item: string, index:number) => (
+        {STATUS.map((item: string, index: number) => (
           <Radio
             key={index}
             id={`civil-status-${index}`}

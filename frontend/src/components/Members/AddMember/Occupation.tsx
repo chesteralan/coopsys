@@ -17,7 +17,14 @@ const OCCUPATION = [
 ];
 
 export default function Occupation() {
-  const options = OCCUPATION.map((item) => ({ value: item.toLowerCase().replace(" / ", "/").replace(/ /g, "-").replace(/\//g, "-"), label: item }));
+  const options = OCCUPATION.map((item) => ({
+    value: item
+      .toLowerCase()
+      .replace(" / ", "/")
+      .replace(/ /g, "-")
+      .replace(/\//g, "-"),
+    label: item,
+  }));
   const handleSelectChange = (value: string) => {
     console.log("Selected value:", value);
   };

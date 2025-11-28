@@ -4,7 +4,6 @@ import { useOverview } from "@/hooks/useOverview";
 import MembersMetrics from "@/components/Members/MembersMetrics";
 
 export default function Home() {
-  
   useOverview();
 
   return (
@@ -18,7 +17,6 @@ export default function Home() {
         <div className="col-span-12 xl:col-span-5">
           <MonthlyTarget />
         </div>
-
       </div>
     </>
   );
