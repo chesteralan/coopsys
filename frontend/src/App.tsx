@@ -16,6 +16,7 @@ import ShareCapitalOverview from "./pages/ShareCapital/ShareCapitalOverview";
 import LoansOverview from "./pages/Loans/LoansOverview";
 import AddMember from "./pages/Members/AddMember";
 import UpdateMember from "./pages/Members/UpdateMember";
+import MemberView from "./pages/Members/MemberView";
 
 export default function App() {
   return (
@@ -42,6 +43,10 @@ export default function App() {
               element={<Members status="inactive" />}
             />
             <Route path="/members/add" element={<AddMember />} />
+            <Route
+              path="/members/view/:member_id"
+              element={<MemberView />}
+            />
             <Route
               path="/members/update/:member_id"
               element={<UpdateMember />}

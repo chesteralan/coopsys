@@ -46,10 +46,10 @@ export const MemberItem = ({ member }: MemberItemProps) => {
       </TableCell>
       <TableCell className="px-4 py-3 text-gray-500 text-theme-sm dark:text-gray-400">
         <Link
-          to={`/members/update/${member.id}`}
+          to={`/members/view/${member.id}`}
           className="text-blue-600 hover:underline"
         >
-          View Details
+          View
         </Link>
       </TableCell>
     </TableRow>
