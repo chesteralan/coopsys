@@ -9,6 +9,7 @@ import {
   FundsIcon,
   PaymentBitcoinIcon,
   ReportIcon,
+  CogIcon,
 } from "@/icons";
 import { useSidebar } from "@/context/SidebarContext";
 
@@ -71,6 +72,11 @@ const navItems: NavItem[] = [
     icon: <ReportIcon />,
     name: "Reports",
     subItems: [{ name: "Overview", path: "/reports", pro: false }],
+  },
+  {
+    icon: <CogIcon />,
+    name: "Settings",
+    subItems: [{ name: "General Settings", path: "/settings/general", pro: false }],
   },
 ];
 

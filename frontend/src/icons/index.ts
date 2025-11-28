@@ -59,6 +59,8 @@ import { ReactComponent as FundsIcon } from "./funds.svg?react";
 import { ReactComponent as BorrowIcon } from "./borrow.svg?react";
 import { ReactComponent as PaymentBitcoinIcon } from "./payment-bitcoin.svg?react";
 import { ReactComponent as ReportIcon } from "./report.svg?react";
+import { ReactComponent as CogIcon } from "./cog.svg?react";
+
 
 export {
   ErrorHexaIcon,
@@ -122,4 +124,5 @@ export {
   BorrowIcon,
   PaymentBitcoinIcon,
   ReportIcon,
+  CogIcon,
 };

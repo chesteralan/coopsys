@@ -17,6 +17,7 @@ import LoansOverview from "./pages/Loans/LoansOverview";
 import AddMember from "./pages/Members/AddMember";
 import UpdateMember from "./pages/Members/UpdateMember";
 import MemberView from "./pages/Members/MemberView";
+import GeneralSettings from "./pages/Settings/GeneralSettings";
 
 export default function App() {
   return (
@@ -70,6 +71,9 @@ export default function App() {
 
             {/* Reports */}
             <Route path="/reports" element={<Reports />} />
+
+            {/* Settings */}
+            <Route path="/settings/general" element={<GeneralSettings />} />
           </Route>
 
           {/* Auth Layout */}
